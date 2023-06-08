@@ -10,9 +10,5 @@ public class LocationEntityConfiguration : IEntityTypeConfiguration<LocationEnti
     {
         builder.HasKey(h => h.Id);
         builder.Property(p => p.LocationName).HasMaxLength(255);
-
-        builder.HasOne(h => h.Pet)
-            .WithMany(w => w.Orders)
-            .HasForeignKey(h => h.UserId);
     }
 }

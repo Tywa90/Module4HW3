@@ -11,5 +11,10 @@ public class BreedEntityConfiguration : IEntityTypeConfiguration<BreedEntity>
         builder.HasKey(h => h.Id);
         builder.Property(p => p.BreedName).IsRequired();
         builder.Property(p => p.CategoryId).IsRequired();
+
+        builder.HasOne(h => h.Category)
+            .WithMany(w => w.Breed)
+            .HasForeignKey(h => h.CategoryId)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }
