@@ -72,6 +72,7 @@ namespace ALevelSample.Migrations
                     SqlServerPropertyBuilderExtensions.UseHiLo(b.Property<int>("Id"));
 
                     b.Property<string>("LocationName")
+                        .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
@@ -140,19 +141,16 @@ namespace ALevelSample.Migrations
                     b.HasOne("ALevelSample.Data.Entities.BreedEntity", "Breed")
                         .WithMany("Pet")
                         .HasForeignKey("BreedID")
-                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("ALevelSample.Data.Entities.CategoryEntity", "Category")
                         .WithMany("Pet")
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("ALevelSample.Data.Entities.LocationEntity", "Location")
                         .WithMany("Pet")
                         .HasForeignKey("LocationId")
-                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Breed");

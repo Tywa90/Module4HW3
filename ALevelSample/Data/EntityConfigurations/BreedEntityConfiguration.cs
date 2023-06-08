@@ -12,9 +12,9 @@ public class BreedEntityConfiguration : IEntityTypeConfiguration<BreedEntity>
         builder.Property(p => p.BreedName).IsRequired();
         builder.Property(p => p.CategoryId).IsRequired();
 
-        builder.HasOne(h => h.Category)
-            .WithMany(w => w.Breed)
-            .HasForeignKey(h => h.CategoryId)
-            .OnDelete(DeleteBehavior.Cascade);
+        // builder.HasOne(h => h.Category)
+        //    .WithMany(w => w.Breed)
+        //    .HasForeignKey(h => h.CategoryId)
+        //    .OnDelete(DeleteBehavior.NoAction);
     }
 }

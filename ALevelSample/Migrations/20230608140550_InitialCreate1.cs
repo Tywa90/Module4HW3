@@ -4,7 +4,7 @@
 
 namespace ALevelSample.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class InitialCreate1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -29,7 +29,7 @@ namespace ALevelSample.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false),
-                    LocationName = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true)
+                    LocationName = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -60,13 +60,13 @@ namespace ALevelSample.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    CategoryId = table.Column<int>(type: "int", maxLength: 255, nullable: false),
-                    BreedID = table.Column<int>(type: "int", maxLength: 255, nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CategoryId = table.Column<int>(type: "int", nullable: false),
+                    BreedID = table.Column<int>(type: "int", nullable: false),
                     Age = table.Column<float>(type: "real", maxLength: 255, nullable: false),
-                    LocationId = table.Column<int>(type: "int", maxLength: 255, nullable: false),
+                    LocationId = table.Column<int>(type: "int", nullable: false),
                     ImageUrl = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
-                    Description = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false)
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -75,20 +75,17 @@ namespace ALevelSample.Migrations
                         name: "FK_Pets_Breeds_BreedID",
                         column: x => x.BreedID,
                         principalTable: "Breeds",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Pets_Category_CategoryId",
                         column: x => x.CategoryId,
                         principalTable: "Category",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Pets_Location_LocationId",
                         column: x => x.LocationId,
                         principalTable: "Location",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(

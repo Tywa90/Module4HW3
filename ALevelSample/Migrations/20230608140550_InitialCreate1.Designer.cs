@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ALevelSample.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230608121707_InitialCreate2")]
-    partial class InitialCreate2
+    [Migration("20230608140550_InitialCreate1")]
+    partial class InitialCreate1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -74,6 +74,7 @@ namespace ALevelSample.Migrations
                     SqlServerPropertyBuilderExtensions.UseHiLo(b.Property<int>("Id"));
 
                     b.Property<string>("LocationName")
+                        .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
@@ -142,19 +143,16 @@ namespace ALevelSample.Migrations
                     b.HasOne("ALevelSample.Data.Entities.BreedEntity", "Breed")
                         .WithMany("Pet")
                         .HasForeignKey("BreedID")
-                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("ALevelSample.Data.Entities.CategoryEntity", "Category")
                         .WithMany("Pet")
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("ALevelSample.Data.Entities.LocationEntity", "Location")
                         .WithMany("Pet")
                         .HasForeignKey("LocationId")
-                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Breed");

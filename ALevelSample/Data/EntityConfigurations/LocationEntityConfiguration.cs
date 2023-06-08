@@ -9,6 +9,7 @@ public class LocationEntityConfiguration : IEntityTypeConfiguration<LocationEnti
     public void Configure(EntityTypeBuilder<LocationEntity> builder)
     {
         builder.HasKey(h => h.Id);
-        builder.Property(p => p.LocationName).HasMaxLength(255);
+        builder.Property(p => p.LocationName).HasMaxLength(255)
+            .IsRequired();
     }
 }
