@@ -1,3 +1,5 @@
+using ALevelSample.Data.Entities;
+
 namespace ALevelSample.Models;
 
 public class Location

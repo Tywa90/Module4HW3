@@ -8,6 +8,7 @@ public class Pet
     public int BreedID { get; set; }
     public float Age { get; set; }
     public int LocationId { get; set; }
+    public Location? Location { get; set; }
     public string? ImageUrl { get; set; }
     public string? Description { get; set; }
 }
