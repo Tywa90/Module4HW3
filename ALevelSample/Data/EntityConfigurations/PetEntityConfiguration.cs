@@ -11,5 +11,10 @@ public class PetEntityConfiguration : IEntityTypeConfiguration<PetEntity>
         builder.HasKey(h => h.Id);
         builder.Property(p => p.Name).HasMaxLength(255);
         builder.Property(p => p.CategoryId).HasMaxLength(255);
+        builder.Property(p => p.BreedID).HasMaxLength(255);
+        builder.Property(p => p.Age).HasMaxLength(255);
+        builder.Property(p => p.LocationId).HasMaxLength(255);
+        builder.Property(p => p.ImageUrl).HasMaxLength(255);
+        builder.Property(p => p.Description).HasMaxLength(255);
     }
 }

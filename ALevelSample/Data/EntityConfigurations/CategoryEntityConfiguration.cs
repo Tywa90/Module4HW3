@@ -9,7 +9,6 @@ public class CategoryEntityConfiguration : IEntityTypeConfiguration<CategoryEnti
     public void Configure(EntityTypeBuilder<CategoryEntity> builder)
     {
         builder.HasKey(h => h.Id);
-        builder.Property(p => p.Name).IsRequired();
-        builder.Property(p => p.Price).IsRequired();
+        builder.Property(p => p.CategoryName).IsRequired();
     }
 }
