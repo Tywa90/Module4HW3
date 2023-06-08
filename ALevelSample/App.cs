@@ -16,6 +16,6 @@ public class App
 
     public async Task Start()
     {
-        var data = await _dbContext.Pets.ToListAsync();
+        var data = await _dbContext.Location.ToListAsync();
     }
 }
