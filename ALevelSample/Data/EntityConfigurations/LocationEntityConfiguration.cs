@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace ALevelSample.Data.EntityConfigurations;
 
-public class OrderItemEntityConfiguration : IEntityTypeConfiguration<OrderItemEntity>
+public class LocationEntityConfiguration : IEntityTypeConfiguration<LocationEntity>
 {
-    public void Configure(EntityTypeBuilder<OrderItemEntity> builder)
+    public void Configure(EntityTypeBuilder<LocationEntity> builder)
     {
         builder.HasKey(h => h.Id);
         builder.Property(p => p.Count).IsRequired();

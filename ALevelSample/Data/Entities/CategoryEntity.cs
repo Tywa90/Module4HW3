@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace ALevelSample.Data.Entities;
 
-public class ProductEntity
+public class CategoryEntity
 {
     public int Id { get; set; }
 
@@ -10,5 +10,5 @@ public class ProductEntity
 
     public double Price { get; set; }
 
-    public List<OrderItemEntity> OrderItems { get; set; } = new List<OrderItemEntity>();
+    public List<LocationEntity> OrderItems { get; set; } = new List<LocationEntity>();
 }

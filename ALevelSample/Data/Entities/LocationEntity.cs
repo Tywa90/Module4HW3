@@ -1,6 +1,6 @@
 namespace ALevelSample.Data.Entities;
 
-public class OrderItemEntity
+public class LocationEntity
 {
     public int Id { get; set; }
 
@@ -8,9 +8,9 @@ public class OrderItemEntity
 
     public int OrderId { get; set; }
 
-    public OrderEntity? Order { get; set; }
+    public BreedEntity? Order { get; set; }
 
     public int ProductId { get; set; }
 
-    public ProductEntity? Product { get; set; }
+    public CategoryEntity? Product { get; set; }
 }

@@ -11,17 +11,17 @@ public class ApplicationDbContext : DbContext
     {
     }
 
-    public DbSet<UserEntity> Users { get; set; } = null!;
-    public DbSet<ProductEntity> Products { get; set; } = null!;
-    public DbSet<OrderEntity> Orders { get; set; } = null!;
-    public DbSet<OrderItemEntity> OrderItems { get; set; } = null!;
+    public DbSet<PetEntity> Pets { get; set; } = null!;
+    public DbSet<CategoryEntity> Category { get; set; } = null!;
+    public DbSet<BreedEntity> Breeds { get; set; } = null!;
+    public DbSet<LocationEntity> Location { get; set; } = null!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfiguration(new UserEntityConfiguration());
-        modelBuilder.ApplyConfiguration(new ProductEntityConfiguration());
-        modelBuilder.ApplyConfiguration(new OrderEntityConfiguration());
-        modelBuilder.ApplyConfiguration(new OrderItemEntityConfiguration());
+        modelBuilder.ApplyConfiguration(new PetEntityConfiguration());
+        modelBuilder.ApplyConfiguration(new CategoryEntityConfiguration());
+        modelBuilder.ApplyConfiguration(new BreedEntityConfiguration());
+        modelBuilder.ApplyConfiguration(new LocationEntityConfiguration());
         modelBuilder.UseHiLo();
     }
 }

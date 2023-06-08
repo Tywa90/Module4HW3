@@ -3,11 +3,11 @@ using ALevelSample.Data.Entities;
 
 namespace ALevelSample.Models;
 
-public class Order
+public class Breed
 {
     public int Id { get; set; }
 
-    public UserEntity? User { get; set; }
+    public string? BreedName { get; set; }
 
-    public IEnumerable<OrderItem>? OrderItems { get; set; }
+    public int CategoryId { get; set; }
 }
