@@ -16,20 +16,5 @@ public class PetEntityConfiguration : IEntityTypeConfiguration<PetEntity>
         builder.Property(p => p.LocationId).IsRequired();
         builder.Property(p => p.ImageUrl).HasMaxLength(255);
         builder.Property(p => p.Description).IsRequired();
-
-        builder.HasOne(h => h.Category)
-           .WithMany(w => w.Pet)
-           .HasForeignKey(h => h.CategoryId)
-           .OnDelete(DeleteBehavior.ClientSetNull);
-
-        builder.HasOne(h => h.Breed)
-            .WithMany(w => w.Pet)
-            .HasForeignKey(h => h.BreedID)
-            .OnDelete(DeleteBehavior.ClientSetNull);
-
-        builder.HasOne(h => h.Location)
-            .WithMany(w => w.Pet)
-            .HasForeignKey(h => h.LocationId)
-            .OnDelete(DeleteBehavior.ClientSetNull);
     }
 }
